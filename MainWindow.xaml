@@ -1,0 +1,68 @@
+﻿<Window x:Class="LearnApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LearnApp"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    Margin="10">
+            <Label Content="Слово" />
+            <TextBox x:Name="WordTextBox"
+                     Width="200"
+                     Margin="5" />
+
+            <Label Content="Перевод" />
+            <TextBox x:Name="TranslationTextBox"
+                     Width="200"
+                     Margin="5" />
+
+            <Label Content="Произношение" />
+            <TextBox x:Name="PronunciationTextBox"
+                     Width="200"
+                     Margin="5" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="5">
+                <Button Content="Добавить"
+                        Click="AddButton_Click"
+                        Width="75"
+                        Margin="5" />
+                <Button Content="Редактировать"
+                        Click="EditButton_Click"
+                        Width="85"
+                        Margin="5" />
+                <Button Content="Удалить"
+                        Click="DeleteButton_Click"
+                        Width="75"
+                        Margin="5" />
+            </StackPanel>
+
+            <DataGrid x:Name="WordsDataGrid"
+                      AutoGenerateColumns="False"
+                      Margin="5"
+                      IsReadOnly="True"
+                      SelectionChanged="WordsDataGrid_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID"
+                                        Binding="{Binding Id}"
+                                        Width="50" />
+                    <DataGridTextColumn Header="Word"
+                                        Binding="{Binding Word}"
+                                        Width="150" />
+                    <DataGridTextColumn Header="Translation"
+                                        Binding="{Binding Translation}"
+                                        Width="150" />
+                    <DataGridTextColumn Header="Pronunciation"
+                                        Binding="{Binding Pronunciation}"
+                                        Width="150" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
